@@ -1,4 +1,4 @@
-import { useContext, useState } from "react"
+import { useContext, useEffect, useState } from "react"
 import { Examcontext } from "../contexts/exam-context"
 import SHmore from "./shmore-component"
 import { Getdaysleft } from "../helper-functions"
@@ -33,6 +33,9 @@ export default function Examlist() {
     if (days < 0) return <span className="task-badge badge-soon">Past</span>
     return <span className="task-badge badge-default">{days}d</span>
   }
+
+  useEffect(() => localStorage.setItem("examlist", JSON.stringify(examlist)), [examlist])
+
 
   return (
     <div>

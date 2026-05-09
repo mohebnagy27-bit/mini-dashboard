@@ -1,5 +1,5 @@
 export function Todaytasks (tasks){
-    const todaytasks = new Date().toISOString().split("T")[0];
+    const todaytasks = new Date().toLocaleDateString("en-ca");
     return tasks.filter(task => task.deadline === todaytasks);
 };
 
